@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint && eslint --ext .ts,.js",
+    "lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "lint:fix": "eslint --fix 'src/**/*.{js,ts,tsx}' ",
     "e2e": "ng e2e"
   },
   "private": true,
@@ -32,6 +33,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
     "codelyzer": "^5.0.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-angular": "^1.0.0",
