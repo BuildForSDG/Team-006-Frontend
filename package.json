@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "lint:fix": "eslint --fix 'src/**/*.{js,ts,tsx}' ",
+    "lint:fix": "eslint --fix 'src/**/*.{js,ts,tsx}' && prettier '*/**/*.{js,jsx,css,json}' --write",
     "e2e": "ng e2e"
   },
   "private": true,
