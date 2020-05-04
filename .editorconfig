@@ -7,10 +7,7 @@ root = true
 [*]
 # Indentation style
 # Possible values - tab, space
-charset = utf-8
 indent_style = space
-insert_final_newline = true
-trim_trailing_whitespace = true
 
 # Indentation size in single-spaced characters
 # Possible values - an integer, tab
@@ -33,20 +30,20 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 
 [*.hbs]
-# insert_final_newline = true
+insert_final_newline = false
 
 [*.ts]
-quote_type = single
-
+indent_size = 2
 
 [{package}.json]
-# indent_size = 2
+indent_size = 2
 
 [*.md]
 max_line_length = 0
 trim_trailing_whitespace = false
 
 [*.yml]
+indent_size = 2
 
 [Makefile]
 indent_style = tab
