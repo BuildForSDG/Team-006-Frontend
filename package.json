@@ -1,3 +1,4 @@
+
 {
   "name": "js-starter",
   "version": "0.0.0",
@@ -13,12 +14,12 @@
     "test": "__tests__"
   },
   "scripts": {
-    "test": "jest",
+    "ng": "ng",
+    "start": "parcel ./src/index.html",
+    "test": "ng test",
     "test:watch": "jest --watch",
     "test:cover": "jest --coverage",
-    "lint": "eslint \"src/**/*.js\"",
-    "start": "parcel ./src/index.html",
-    "ng": "ng",
+    "lint": "ng lint",
     "build": "ng build",
     "e2e": "ng e2e"
   },
