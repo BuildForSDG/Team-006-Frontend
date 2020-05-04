@@ -13,7 +13,8 @@ describe('AppComponent', () => {
       declarations: [
         // tslint:disable-next-line:trailing-comma
         AppComponent
-      ],
+      // tslint:disable-next-line:trailing-comma
+      ]
     }).compileComponents();
   }));
 
@@ -23,7 +24,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'login'`, () => {
+  it(`should have as title 'login' `, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('login');
