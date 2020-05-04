@@ -6,11 +6,13 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        // tslint:disable-next-line:trailing-comma
+        RouterTestingModule
       ],
       // tslint:disable-next-line:object-literal-sort-keys
       declarations: [
-        AppComponent,
+        // tslint:disable-next-line:trailing-comma
+        AppComponent
       ],
     }).compileComponents();
   }));

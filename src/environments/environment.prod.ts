@@ -1,3 +1,4 @@
 export const environment = {
-  production: true,
+  // tslint:disable-next-line:trailing-comma
+  production: true
 };

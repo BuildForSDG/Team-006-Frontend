@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  // tslint:disable-next-line:trailing-comma
+  production: false
 };
 
 /*
