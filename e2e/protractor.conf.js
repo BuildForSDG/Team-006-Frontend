@@ -6,7 +6,7 @@ const { SpecReporter } = require('jasmine-spec-reporter');
 
 /**
  * @type { import("protractor").Config }
- */
+*/
 exports.config = {
   allScriptsTimeout: 11000,
   specs: [
@@ -21,12 +21,16 @@ exports.config = {
   jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 30000,
-    print: function() {}
+    // eslint-disable-next-line func-names
+    print() {}
   },
   onPrepare() {
+    // eslint-disable-next-line global-require
     require('ts-node').register({
+      // eslint-disable-next-line global-require
       project: require('path').join(__dirname, './tsconfig.json')
     });
+    // eslint-disable-next-line no-undef
     jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
   }
 };
