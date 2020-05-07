@@ -17,16 +17,15 @@
         <h1>Add tags</h1>
         <div>
             <span class='tag'>Tags keep responders more informed</span>
-            <select name="" id="add-tags">
-      <option selected>Select Tags</option>
-      <option value="">Fire</option>
-      <option value="">Road accident</option>
+            <select name="" id="add-tags" (change)='selectTag($event.target.value)'>
+      <option selected disabled>Select Tags</option>
+      <option *ngFor="let tag of listOfTags" value="{{tag}}">{{tag}}</option>
     </select>
 
             <!-- Selected tags -->
             <div>
                 <ul class="selected-tags-list">
-                    <li class="single-tag">Fire <span>&times;</span></li>
+                    <li *ngFor="let tag of this.selectedTags" class="single-tag">{{tag}} <span (click)='removeTag(tag)'>&times;</span></li>
                 </ul>
             </div>
 
