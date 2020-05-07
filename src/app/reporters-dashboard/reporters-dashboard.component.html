@@ -1,1 +1,59 @@
-<p>reporters-dashboard works!</p>
+<!-- Navbar -->
+<nav>
+    <!-- Logo -->
+    <span id='logo'>Logo</span>
+
+    <!-- Navigation -->
+    <div class='navbar-nav'>
+        <!-- Menu icon for mobile -->
+        <span class='hamburger' (click)='showMenu()'>Menu</span>
+
+        <div class="nav" [ngClass]='{active: sideMenu}'>
+            <!-- Navbar close button -->
+            <span class="close" (click)='closeMenu()'>&times;</span>
+
+            <!-- Nav list -->
+            <ul class="nav-list">
+                <li class='nav-item'>Dashboard</li>
+                <li class='nav-item'>History</li>
+                <li class='nav-item'>Logout</li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="main">
+    <!-- Describe incident section -->
+    <div>
+        <h1>Describe Incident</h1>
+        <div>
+            <label for="incident-comment">Comments about incident</label>
+            <textarea name="" id="incident-comment" cols="30" rows="10" placeholder="Briefly describe the incident e.g Highway accident with 3 severe casualties."></textarea>
+        </div>
+    </div>
+    <hr>
+    <!-- Add tags -->
+    <div>
+        <h1>Add tags</h1>
+        <div>
+            <span class='tag'>Tags keep responders more informed</span>
+            <select name="" id="add-tags">
+      <option selected>Select Tags</option>
+      <option value="">Fire</option>
+      <option value="">Road accident</option>
+    </select>
+
+            <!-- Selected tags -->
+            <div>
+                <ul class="selected-tags-list">
+                    <li class="single-tag">Fire <span>&times;</span></li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- Continue button -->
+    <button>Continue</button>
+</div>

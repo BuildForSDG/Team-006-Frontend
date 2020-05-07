@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/* Remove the margin & padding from html & body tags and give 100% height */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
