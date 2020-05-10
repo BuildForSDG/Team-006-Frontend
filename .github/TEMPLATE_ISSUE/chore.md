@@ -14,5 +14,5 @@ Brief description of tasks and objectives
 \<Additional Resources>
 
 ### Acceptance Criteria
--   [ ] 1. \<Outline of task which is a part of chore checklist>
--   [ ] 2. \<Outline of another task which is a part of chore checklist>
+- [ ] \<Outline of task which is a part of chore checklist>
+- [ ] \<Outline of another task which is a part of chore checklist>
