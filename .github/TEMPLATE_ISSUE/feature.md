@@ -15,9 +15,8 @@ so that \<some reason>
  
 ### Acceptance Criteria 
 
--   **Scenario**: Describe Scenario 
-  -   Given \<context>  
-    -   And \<some more context>...  
-  -   When  \<event>  
-  -   Then  \<outcome>  
-    -   And \<another outcome>...
+**Scenario**: Describe Scenario 
+Given \<context>  
+When  \<event>  
+Then  \<outcome>...  
+And \<another outcome>...
