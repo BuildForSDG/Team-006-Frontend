@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReportService } from '../core/service/report.service';
 
 @Component({
   selector: 'app-reporters-dashboard',
@@ -6,13 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reporters-dashboard.component.scss']
 })
 export class ReportersDashboardComponent implements OnInit {
+  incidentComment = '';
   listOfTags = ['fire', 'accident', 'water'];
 
   selectedTags: string[] = [];
 
-  constructor() {}
+  constructor(public reportService: ReportService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.reportService.incidentComment) {
+      this.incidentComment = this.reportService.incidentComment;
+      this.selectedTags = this.reportService.selectedTags;
+    }
+  }
 
   selectTag(tag: string) {
     if (this.selectedTags.includes(tag)) {
@@ -28,5 +35,11 @@ export class ReportersDashboardComponent implements OnInit {
       return t !== tag;
     });
     console.log(this.selectedTags);
+  }
+
+  submitForm(formValue) {
+    this.reportService.setInfo(formValue, this.selectedTags);
+    console.log(this.reportService.incidentComment)
+    console.log(this.reportService.selectedTags)
   }
 }
