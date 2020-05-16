@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ReportService {
-  incidentComment: string;
-  selectedTags: string[];
+  incidentComment = '';
+  selectedTags: string[] = [];
 
   constructor() {}
 

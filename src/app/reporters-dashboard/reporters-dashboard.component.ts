@@ -39,7 +39,5 @@ export class ReportersDashboardComponent implements OnInit {
 
   submitForm(formValue) {
     this.reportService.setInfo(formValue, this.selectedTags);
-    console.log(this.reportService.incidentComment)
-    console.log(this.reportService.selectedTags)
   }
 }
