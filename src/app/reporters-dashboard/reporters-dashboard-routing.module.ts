@@ -9,4 +9,4 @@ const routes: Routes = [{ path: '', component: ReportersDashboardComponent }];
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ReportersDashboardRoutingModule { }
+export class ReportersDashboardRoutingModule {}
