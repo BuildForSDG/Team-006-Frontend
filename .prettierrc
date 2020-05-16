@@ -9,5 +9,6 @@
     "options": {
       "parser": "json"
     }
-  }]
+  }],
+  "disableLanguages": ["scss", "sass", "css"]
 }
