@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReportService } from '../core/service/report.service';
+import { ScreenWidthService } from '../core/service/screen-width.service';
 
 @Component({
   selector: 'app-reporters-dashboard',
@@ -11,8 +12,7 @@ export class ReportersDashboardComponent implements OnInit {
   listOfTags = ['fire', 'accident', 'water'];
 
   selectedTags: string[] = [];
-
-  constructor(public reportService: ReportService) {}
+  constructor(public reportService: ReportService, public screenWidthService: ScreenWidthService) {}
 
   ngOnInit() {
     if (this.reportService.incidentComment) {

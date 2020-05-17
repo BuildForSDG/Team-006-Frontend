@@ -1,40 +1,44 @@
-<!-- Nav bar -->
-<app-navbar></app-navbar>
+<div *ngIf='screenWidthService.screenWidth <= 450'>
+    <!-- Nav bar -->
+    <app-navbar></app-navbar>
 
-<!-- Main content -->
-<div class="main">
-    <form (ngSubmit)='submitForm(form.value)' #form='ngForm'>
-        <!-- Describe incident section -->
-        <div>
-            <h2>Describe Incident</h2>
+    <!-- Main content -->
+    <div class="main">
+        <form (ngSubmit)='submitForm(form.value)' #form='ngForm'>
+            <!-- Describe incident section -->
             <div>
-                <label for="incident-comment">Comments about incident</label>
-                <textarea #comment='ngModel' required name="incident-comment" id="incident-comment" [(ngModel)]='incidentComment' cols="30" rows="10" placeholder="Briefly describe the incident e.g Highway accident with 3 severe casualties."></textarea>
+                <h2>Describe Incident</h2>
+                <div>
+                    <label for="incident-comment">Comments about incident</label>
+                    <textarea #comment='ngModel' required name="incident-comment" id="incident-comment" [(ngModel)]='incidentComment' cols="30" rows="10" placeholder="Briefly describe the incident e.g Highway accident with 3 severe casualties."></textarea>
+                </div>
             </div>
-        </div>
-        <hr>
-        <!-- Add tags -->
-        <div>
-            <h2>Add tags</h2>
+            <hr>
+            <!-- Add tags -->
             <div>
-                <span class='tag'>Tags keep responders more informed</span>
-                <select name="" id="add-tags" (change)='selectTag($event.target.value)'>
+                <h2>Add tags</h2>
+                <div>
+                    <span class='tag'>Tags keep responders more informed</span>
+                    <select name="" id="add-tags" (change)='selectTag($event.target.value)'>
       <option selected disabled>Select Tags</option>
       <option *ngFor="let tag of listOfTags" value="{{tag}}">{{tag}}</option>
     </select>
 
-                <!-- Selected tags -->
-                <div>
-                    <ul class="selected-tags-list">
-                        <li *ngFor="let tag of this.selectedTags" class="single-tag">{{tag}} <span (click)='removeTag(tag)'>&times;</span></li>
-                    </ul>
+                    <!-- Selected tags -->
+                    <div>
+                        <ul class="selected-tags-list">
+                            <li *ngFor="let tag of this.selectedTags" class="single-tag">{{tag}} <span (click)='removeTag(tag)'>&times;</span></li>
+                        </ul>
+                    </div>
+
+
                 </div>
-
-
             </div>
-        </div>
 
-        <!-- Continue button -->
-        <button type="submit" [disabled]='comment.invalid'>Continue</button>
-    </form>
+            <!-- Continue button -->
+            <button type="submit" [disabled]='comment.invalid'>Continue</button>
+        </form>
+    </div>
 </div>
+
+<app-large-device-error *ngIf='screenWidthService.screenWidth > 450'></app-large-device-error>
