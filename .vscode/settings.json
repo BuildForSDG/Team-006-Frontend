@@ -1,5 +1,4 @@
 {
-  "[scss]": {
-    "editor.formatOnSave": false,
-  }
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": { "source.fixAll.tslint": true }
 }
