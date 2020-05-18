@@ -1,12 +1,13 @@
 .errorPage {
-    display: flex;
-    height: 90%;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    h2 {
-        color: #ff4848;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
+  display: flex;
+  height: 90%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  h2 {
+    color: #ff4848;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
 }

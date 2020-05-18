@@ -8,9 +8,8 @@ describe('LargeDeviceErrorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LargeDeviceErrorComponent ]
-    })
-    .compileComponents();
+      declarations: [LargeDeviceErrorComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
