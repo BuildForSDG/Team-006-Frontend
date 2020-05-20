@@ -6,9 +6,9 @@
     <!-- Navigation -->
     <div class="navbar-nav">
         <!-- Menu icon for mobile -->
-        <fa-icon [icon]="faBars" class="hamburger" (click)="showMenu()"></fa-icon>
+        <fa-icon [icon]="faBars" class="hamburger" (click)="showMenu()" *ngIf="this.authService.reporterIsLoggedIn"></fa-icon>
 
-        <div class="nav" [ngClass]="{ active: sideMenu }">
+        <div class="nav" [ngClass]="{ active: sideMenu }" *ngIf="this.authService.reporterIsLoggedIn">
             <!-- Navbar close button -->
             <span class="close" (click)="closeMenu()">&times;</span>
 

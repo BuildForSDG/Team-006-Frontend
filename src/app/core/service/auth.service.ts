@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 export class AuthService {
   signInMessage = 'Loading...';
   signInPendingState: boolean;
+  reporterIsLoggedIn: boolean;
+
   constructor(
     public angularFireAuth: AngularFireAuth, // Inject AngularFireAuth
     private router: Router,
@@ -25,6 +27,7 @@ export class AuthService {
             // Using NgZone as the only way to run Angular-specific code within Promise
             this.ngZone.run(() => {
               this.signInPendingState = false;
+              this.setReporterLoggedInStatus();
               this.router.navigate(['/report-dashboard']);
             });
           }
@@ -62,6 +65,7 @@ export class AuthService {
       .signOut()
       .then(() => {
         this.angularFireAuth.auth.onAuthStateChanged((user) => {
+          this.reporterIsLoggedIn = undefined;
           this.router.navigate(['/reporter-login']);
         });
         /* this.ngZone.run(() => {
@@ -87,5 +91,9 @@ export class AuthService {
      */
     window.sessionStorage.setItem('period', '1');
     this.angularFireAuth.auth.signInWithRedirect(provider);
+  }
+
+  setReporterLoggedInStatus() {
+    this.reporterIsLoggedIn = true;
   }
 }
