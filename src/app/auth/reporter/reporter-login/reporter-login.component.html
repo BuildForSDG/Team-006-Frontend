@@ -1,22 +1,32 @@
 <div *ngIf="this.screenWidthService.screenWidth <= 450" class="container">
-    <app-navbar></app-navbar>
+  <app-navbar></app-navbar>
 
-    <div class="main">
-        <h1>
-            Login to report an emergency
-        </h1>
+  <div class="main">
+    <h1>
+      Login to report an emergency
+    </h1>
 
-        <div class="social-btn-container">
-            <button (click)="this.authService.loginWithGoogle()">
-        <img src="assets/images/google-logo.png" alt="" /> Login with Google
-      </button>
-            <button (click)="this.authService.loginWithFacebook()">
-        <img src="assets/images/facebook-logo.png" alt="" /> Login with Facebook
-      </button>
-        </div>
+    <div style="text-align: center; margin-top: 30px;" *ngIf="authService.signInPendingState">
+      {{ authService.signInMessage }}
     </div>
+
+    <div class="social-btn-container">
+      <button (click)="this.authService.loginWithGoogle()">
+        <div class="logo-container">
+          <img src="assets/images/google-logo.png" alt="" />
+        </div>
+        Login with Google
+      </button>
+      <button (click)="this.authService.loginWithFacebook()">
+        <div class="logo-container">
+          <img src="assets/images/facebook-logo.png" alt="" />
+        </div>
+        Login with Facebook
+      </button>
+    </div>
+  </div>
 </div>
 
 <div *ngIf="this.screenWidthService.screenWidth > 450">
-    <app-large-device-error></app-large-device-error>
+  <app-large-device-error></app-large-device-error>
 </div>
