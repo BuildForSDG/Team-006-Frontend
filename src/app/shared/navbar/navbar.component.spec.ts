@@ -2,15 +2,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavbarComponent } from './navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AuthService } from 'src/app/core/service/auth.service';
+import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { NgZone } from '@angular/core';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
+  const mockAuthService = jasmine.createSpyObj(['logout', 'loginWithGoogle', 'loginWithFacebook']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [NavbarComponent],
-      imports: [FontAwesomeModule]
+      imports: [FontAwesomeModule],
+      providers: [{ provide: AuthService, useValue: mockAuthService }]
     }).compileComponents();
   }));
 
