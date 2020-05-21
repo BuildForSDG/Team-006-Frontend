@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LargeDeviceErrorComponent } from './large-device-error.component';
+import { ReporterSigninComponent } from './reporter-signin.component';
 
-describe('LargeDeviceErrorComponent', () => {
-  let component: LargeDeviceErrorComponent;
-  let fixture: ComponentFixture<LargeDeviceErrorComponent>;
+describe('ReporterSigninComponent', () => {
+  let component: ReporterSigninComponent;
+  let fixture: ComponentFixture<ReporterSigninComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LargeDeviceErrorComponent]
+      declarations: [ReporterSigninComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LargeDeviceErrorComponent);
+    fixture = TestBed.createComponent(ReporterSigninComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

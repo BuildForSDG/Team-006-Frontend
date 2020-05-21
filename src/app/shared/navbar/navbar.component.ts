@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from 'src/app/core/service/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,7 @@ export class NavbarComponent implements OnInit {
 
   sideMenu = false;
 
-  constructor() {}
+  constructor(public authService: AuthService) {}
 
   ngOnInit() {}
 
@@ -24,5 +25,10 @@ export class NavbarComponent implements OnInit {
   /* Show side menu */
   showMenu() {
     this.sideMenu = !this.sideMenu;
+  }
+
+  /* Log reporter out of app  */
+  logout() {
+    this.authService.logout();
   }
 }

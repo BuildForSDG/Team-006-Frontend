@@ -4,25 +4,55 @@ import { ReportersDashboardComponent } from './reporters-dashboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { ReportService } from '../core/service/report.service';
+import { ScreenWidthService } from '../core/service/screen-width.service';
+import { of } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthService } from '../core/service/auth.service';
+
+const authState = {
+  isAnonymous: true,
+  uid: '17WvU2Vj58SnTz8v7EqyYYb0WRc2'
+};
+
+const mockAngularFireAuth: any = {
+  auth: jasmine.createSpyObj('auth', {
+    signInAnonymously: Promise.resolve() /* reject({
+      code: 'auth/operation-not-allowed'
+    }) */
+      .catch((error) => error),
+    signInWithPopup: Promise.resolve().catch((error) => error),
+    signOut: Promise.resolve().catch((error) => error)
+  }),
+  authState: of(authState)
+};
 
 describe('ReportersDashboardComponent', () => {
   let component: ReportersDashboardComponent;
   let fixture: ComponentFixture<ReportersDashboardComponent>;
   let reportService: ReportService;
   let mockReportService;
+  let screenWidthService;
   const listOfTags = ['fire', 'accident', 'water'];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ReportersDashboardComponent],
-      imports: [SharedModule, FormsModule]
+      imports: [SharedModule, FormsModule],
+      providers: [
+        { provide: AngularFireAuth, useValue: mockAngularFireAuth },
+        {
+          provide: AuthService,
+          useClass: AuthService
+        }
+      ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ReportersDashboardComponent);
     mockReportService = jasmine.createSpyObj(['setInfo']);
-    component = new ReportersDashboardComponent(mockReportService);
+    screenWidthService = new ScreenWidthService();
+    component = new ReportersDashboardComponent(mockReportService, screenWidthService);
     fixture.detectChanges();
     reportService = new ReportService();
   });
