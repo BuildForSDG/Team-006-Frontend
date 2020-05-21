@@ -1,0 +1,80 @@
+.main {
+  min-height: 87%;
+  padding: 0 15px;
+
+  h2 {
+    color: #ff4848;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  div {
+    label {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #444;
+      display: block;
+    }
+
+    textarea {
+      border-radius: 4px;
+      border: 1px solid #a0a0a0;
+      width: 96%;
+      padding: 0;
+      padding-left: 10px;
+      padding-top: 10px;
+      margin-bottom: 20px;
+    }
+  }
+
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+  }
+
+  ul.selected-tags-list {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+
+    li {
+      border-radius: 50px;
+      background-color: #ff4848;
+      color: #fff;
+      padding: 8px 15px;
+      font-weight: bold;
+      margin-right: 10px;
+      margin-top: 15px;
+
+      span {
+        border-radius: 100px;
+        color: #ff4848;
+        background-color: #fff;
+        padding: 2px 7px;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  /* Green button */
+
+  button {
+    width: 100%;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #10d610;
+    padding: 19px;
+    border: none;
+    margin-top: 30px;
+  }
+
+  button[disabled] {
+    background-color: #9e9e9e;
+  }
+}
+
