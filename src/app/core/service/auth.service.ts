@@ -60,17 +60,10 @@ export class AuthService {
   }
 
   logout() {
-    const user = this.angularFireAuth.auth.currentUser;
     this.angularFireAuth.auth
       .signOut()
       .then(() => {
-        this.angularFireAuth.auth.onAuthStateChanged((user) => {
-          this.reporterIsLoggedIn = undefined;
-          this.router.navigate(['/reporter-login']);
-        });
-        /* this.ngZone.run(() => {
-          this.router.navigate(['/reporter-login']);
-        }); */
+        this.router.navigate(['/reporter-login']);
       })
       .catch((err) => {
         console.log(err);
