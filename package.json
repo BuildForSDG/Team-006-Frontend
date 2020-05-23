@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:ci": "ng build --prod && cp dist/index.html dist/404.html",
     "test": "ng test",
     "lint": "ng lint --fix=true && prettier --write **/*.scss",
     "e2e": "ng e2e"

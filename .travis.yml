@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - '12'
+before_script:
+  - npm run lint:ci
+script:
+  - npm run test
+before_deploy:
+  - npm run build:ci
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  local_dir: dist
+  on:
+    repo: buildforsdg/team-006-frontend
+    branch: develop
+env:
+  global:
+    secure: eGvmEf6NLvmf/z9/GYAeEPWtZyHC0IbP/Bb4ZnhP5WY0tZ9M6ywEVUIzJug76J1Z3gGqB0yzn3XQYRcaPqbwKXKGzDCn68kVxShSxeS6XqcZffbvu8o3qRn9sPu6/2FwtOjs3WgYWONa97Up7koXdUlO2irOpnpBC55Rvg67qgcTQuKZSX+o4fyFRdCjY1Mv+vHIzvR3bDYm4B/7YygvR7Jl3bkyZtpjdfGsjrHbsJFQTSHs6+pmMOfUL5Rf3CXMIZgEJtra4CGjS5IkKraSPN+v328R0d8wPXMC/73wTB4fmK1d34cXxB7LzEsw1ehJNmvA/cCBCr3d8fxlLw8qfGfWvS7w5JFh5jH6mPFDSYdkbK3nMArgHuuRVPVRcE/ozrDjGj6OCwmqHMub5Djxuza1v60QGUyL7d4fYNbDx1BxyZJng0fq8Ep12DXxFMjakHnUtQZ3fxFRfRRd7REwCHq5a4LFQDob/1CWWPf9utqugG1Uy7/5LKIyZo+wZeZQeMvEJ+bNtbQZg5YXNXy0Fj4YGTTkhfWcCAiSX9Gz0+xoTXnhHfUuukRqNSQUUv/rpJlQsR285/uvKnmuMgIxXeQdDVpxs+6HsW+DmrDmZqHlG2SvfraVYuLYOdquFxetzBgPb2Y5L/rA59cEK4vDCw34hIDSfrMbLde3TndV1AQ=
