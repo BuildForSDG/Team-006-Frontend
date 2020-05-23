@@ -64,7 +64,7 @@ export class AuthService {
     this.angularFireAuth.auth
       .signOut()
       .then(() => {
-        this.angularFireAuth.auth.onAuthStateChanged((user) => {
+        this.angularFireAuth.auth.onAuthStateChanged((authUser) => {
           this.reporterIsLoggedIn = undefined;
           this.router.navigate(['/reporter-login']);
         });
