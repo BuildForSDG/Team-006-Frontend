@@ -1,7 +1,8 @@
 import { Injectable, NgZone } from '@angular/core';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { IReporterProfileConfirmation } from '../interface/profile-confirmation';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +11,17 @@ export class AuthService {
   signInMessage = 'Loading...';
   signInPendingState: boolean;
   reporterIsLoggedIn: boolean;
+  newReporterProfile: IReporterProfileConfirmation = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: 0
+  };
 
   constructor(
     public angularFireAuth: AngularFireAuth, // Inject AngularFireAuth
     private router: Router,
+    private activatedRoute: ActivatedRoute,
     private ngZone: NgZone
   ) {
     // Using sessionstorage as a means to show a loading message before the getRedirectResult method resolves
@@ -27,8 +35,21 @@ export class AuthService {
             // Using NgZone as the only way to run Angular-specific code within Promise
             this.ngZone.run(() => {
               this.signInPendingState = false;
-              this.setReporterLoggedInStatus();
-              this.router.navigate(['/report-dashboard']);
+              console.log(result);
+              console.log(result.user);
+              if (result.additionalUserInfo.isNewUser) {
+                // tslint:disable-next-line: no-string-literal
+                this.newReporterProfile.email = result.additionalUserInfo.profile['email'];
+                // tslint:disable-next-line: no-string-literal
+                this.newReporterProfile.firstName = result.additionalUserInfo.profile['given_name'];
+                // tslint:disable-next-line: no-string-literal
+                this.newReporterProfile.lastName = result.additionalUserInfo.profile['family_name'];
+
+                this.router.navigate(['/reporter-signup/profile-confirmation']);
+              } else {
+                this.setReporterLoggedInStatus();
+                this.router.navigate(['/report-dashboard']);
+              }
             });
           }
         })

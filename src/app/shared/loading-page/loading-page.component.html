@@ -1,0 +1,4 @@
+<div *ngIf="authService.signInPendingState">
+    <div class="modal-background"></div>
+    <div class="modal-body">{{ authService.signInMessage }}</div>
+</div>
