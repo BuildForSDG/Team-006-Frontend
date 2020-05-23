@@ -53,16 +53,16 @@ describe('AuthService', () => {
   );
 
   it('should be created', () => {
-    let router: Router;
-    let ngZone: NgZone;
+    const router: Router = undefined;
+    const ngZone: NgZone = undefined;
     const service: AuthService = new AuthService(mockAngularFireAuth, router, ngZone);
 
     expect(service).toBeTruthy();
   });
 
   it('should call loginWithFacebook method', () => {
-    let router: Router;
-    let ngZone: NgZone;
+    const router: Router = undefined;
+    const ngZone: NgZone = undefined;
     const service: AuthService = new AuthService(mockAngularFireAuth, router, ngZone);
 
     spyOn(service, 'loginWithFacebook');
@@ -76,8 +76,8 @@ describe('AuthService', () => {
   });
 
   it('should call loginWithGoogle method', () => {
-    let router: Router;
-    let ngZone: NgZone;
+    const router: Router = undefined;
+    const ngZone: NgZone = undefined;
     const service: AuthService = new AuthService(mockAngularFireAuth, router, ngZone);
 
     console.log(mockAngularFireAuth.auth);
@@ -93,8 +93,8 @@ describe('AuthService', () => {
   });
 
   it('should call logout method', () => {
-    let router: Router;
-    let ngZone: NgZone;
+    const router: Router = undefined;
+    const ngZone: NgZone = undefined;
     const service: AuthService = new AuthService(mockAngularFireAuth, router, ngZone);
 
     console.log(mockAngularFireAuth.auth);
