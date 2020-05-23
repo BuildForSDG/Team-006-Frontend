@@ -4,6 +4,7 @@ import { ReporterLoginComponent } from './reporter-login.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { ScreenWidthService } from 'src/app/core/service/screen-width.service';
+import { ReporterAuthButtonsComponent } from '../reporter-auth-buttons/reporter-auth-buttons.component';
 
 describe('ReporterLoginComponent', () => {
   let component: ReporterLoginComponent;
@@ -13,7 +14,7 @@ describe('ReporterLoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ReporterLoginComponent],
+      declarations: [ReporterLoginComponent, ReporterAuthButtonsComponent],
       imports: [SharedModule],
       providers: [
         { provide: AuthService, useValue: mockAuthService },

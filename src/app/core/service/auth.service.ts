@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { IReporterProfileConfirmation } from '../interface/profile-confirmation';
 
 @Injectable({
@@ -21,7 +21,6 @@ export class AuthService {
   constructor(
     public angularFireAuth: AngularFireAuth, // Inject AngularFireAuth
     private router: Router,
-    private activatedRoute: ActivatedRoute,
     private ngZone: NgZone
   ) {
     // Using sessionstorage as a means to show a loading message before the getRedirectResult method resolves
