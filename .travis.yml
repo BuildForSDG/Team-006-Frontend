@@ -15,7 +15,6 @@ deploy:
   keep_history: true
   local_dir: dist
   on:
-    repo: buildforsdg/team-006-frontend
     branch: develop
 env:
   global:
