@@ -7,6 +7,7 @@
     "build": "ng build",
     "build:ci": "ng build --prod && cp dist/index.html dist/404.html",
     "test": "ng test",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadless",
     "remark-lint": "remark '*.md' '.github\\ISSUE_TEMPLATE\\*.md'",
     "lint": "ng lint --fix=true && prettier --write . && npm run remark-lint",
     "lint:ci": "ng lint",
