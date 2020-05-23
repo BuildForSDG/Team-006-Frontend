@@ -6,11 +6,14 @@
             <h1>
                 Sign up to report an emergency
             </h1>
-            <span style="margin-top: 20px; display: block;">Have an account? <span routerLink="/reporter-login" style="color: #10d610;">Login</span>
+            <span style="margin-top: 20px; display: block;">Have an account? <span routerLink="/auth/reporter-login" style="color: #10d610;">Login</span>
             </span>
         </div>
 
-        <app-reporter-auth-buttons></app-reporter-auth-buttons>
+        <app-reporter-auth-buttons>
+            <span google-button>Sign up with Google</span>
+            <span facebook-button>Sign up with Facebook</span>
+        </app-reporter-auth-buttons>
     </div>
 </div>
 

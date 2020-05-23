@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from 'src/app/core/service/auth.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/core/service/auth.service';
   styleUrls: ['./reporter-auth-buttons.component.scss']
 })
 export class ReporterAuthButtonsComponent implements OnInit {
+  @Input() buttonUse: string;
   constructor(public authService: AuthService) {}
 
   ngOnInit() {}

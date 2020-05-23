@@ -31,12 +31,13 @@ export class AuthService {
       this.angularFireAuth.auth
         .getRedirectResult()
         .then((result) => {
+          this.ngZone.run(() => {
+            this.signInPendingState = false;
+          });
+
           if (result.user) {
             // Using NgZone as the only way to run Angular-specific code within Promise
             this.ngZone.run(() => {
-              this.signInPendingState = false;
-              console.log(result);
-              console.log(result.user);
               if (result.additionalUserInfo.isNewUser) {
                 // tslint:disable-next-line: no-string-literal
                 this.newReporterProfile.email = result.additionalUserInfo.profile['email'];
@@ -45,7 +46,7 @@ export class AuthService {
                 // tslint:disable-next-line: no-string-literal
                 this.newReporterProfile.lastName = result.additionalUserInfo.profile['family_name'];
 
-                this.router.navigate(['/reporter-signup/profile-confirmation']);
+                this.router.navigate(['auth/reporter-signup/profile-confirmation']);
               } else {
                 this.setReporterLoggedInStatus();
                 this.router.navigate(['/report-dashboard']);
