@@ -55,6 +55,9 @@ export class AuthService {
           }
         })
         .catch((err) => {
+          this.ngZone.run(() => {
+            this.signInPendingState = false;
+          });
           console.log(err);
         });
     }
@@ -75,6 +78,8 @@ export class AuthService {
   loginWithFacebook() {
     return new Promise<any>((resolve, reject) => {
       const provider = new auth.FacebookAuthProvider();
+      provider.addScope('profile');
+      provider.addScope('email');
       // Initiate signInWithRedirect method
       this.initiateSignInWithRedirect(provider);
       resolve();
