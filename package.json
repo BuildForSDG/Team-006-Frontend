@@ -7,7 +7,7 @@
     "build": "ng build",
     "build:ci": "ng build --prod && cp dist/index.html dist/404.html",
     "test": "ng test",
-    "test:ci": "ng test --watch=false --browsers=ChromeHeadless --code-coverage && cat ./coverage/lcov.info | coveralls",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadless --code-coverage && cat ./coverage/Andela-SDG-team006/lcov.info | coveralls",
     "test:coverage": "ng test --no-watch --code-coverage",
     "remark-lint": "remark '*.md' '.github\\ISSUE_TEMPLATE\\*.md'",
     "lint": "ng lint --fix=true && prettier --write . && npm run remark-lint",
