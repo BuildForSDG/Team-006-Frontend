@@ -2,9 +2,10 @@ language: node_js
 node_js:
   - '12'
 before_script:
+  - npm install -g @angular/cli
   - npm run lint:ci
 script:
-  - npm run test
+  - npm run test:ci
 before_deploy:
   - npm run build:ci
 deploy:
