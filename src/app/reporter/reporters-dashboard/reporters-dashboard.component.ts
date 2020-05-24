@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ReportService } from '../core/service/report.service';
-import { ScreenWidthService } from '../core/service/screen-width.service';
+import { ReportService } from '../../core/service/report.service';
+import { ScreenWidthService } from '../../core/service/screen-width.service';
 
 @Component({
   selector: 'app-reporters-dashboard',

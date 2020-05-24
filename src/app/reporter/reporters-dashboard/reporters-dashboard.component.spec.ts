@@ -1,13 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ReportersDashboardComponent } from './reporters-dashboard.component';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { FormsModule } from '@angular/forms';
-import { ReportService } from '../core/service/report.service';
-import { ScreenWidthService } from '../core/service/screen-width.service';
+import { ReportService } from '../../core/service/report.service';
+import { ScreenWidthService } from '../../core/service/screen-width.service';
 import { of } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AuthService } from '../core/service/auth.service';
+import { AuthService } from '../../core/service/auth.service';
 
 const authState = {
   isAnonymous: true,
