@@ -37,5 +37,7 @@ describe('ReportService', () => {
 
     expect(service.selectedTags.length).toBeGreaterThan(0);
     expect(service.incidentComment.length).toBeGreaterThan(0);
+    expect(window.sessionStorage.getItem('incidentComment')).toBeTruthy();
+    expect(window.sessionStorage.getItem('selectedTags')).toBeTruthy();
   });
 });
