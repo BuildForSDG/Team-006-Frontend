@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ReportConfirmationComponent } from './report-confirmation.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ReportConfirmationComponent', () => {
   let component: ReportConfirmationComponent;
@@ -8,9 +10,9 @@ describe('ReportConfirmationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReportConfirmationComponent ]
-    })
-    .compileComponents();
+      declarations: [ReportConfirmationComponent],
+      imports: [SharedModule, RouterTestingModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

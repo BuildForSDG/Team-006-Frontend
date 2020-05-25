@@ -8,6 +8,7 @@ import { ScreenWidthService } from '../../core/service/screen-width.service';
 import { of } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from '../../core/service/auth.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 const authState = {
   isAnonymous: true,
@@ -37,7 +38,7 @@ describe('ReportersDashboardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ReportersDashboardComponent],
-      imports: [SharedModule, FormsModule],
+      imports: [RouterTestingModule, SharedModule, FormsModule, RouterTestingModule],
       providers: [
         { provide: AngularFireAuth, useValue: mockAngularFireAuth },
         {
@@ -50,11 +51,11 @@ describe('ReportersDashboardComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ReportersDashboardComponent);
-    mockReportService = jasmine.createSpyObj(['setInfo']);
+    mockReportService = jasmine.createSpyObj('ReportService', ['setInfo']);
     screenWidthService = new ScreenWidthService();
-    component = new ReportersDashboardComponent(mockReportService, screenWidthService);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    reportService = new ReportService();
+    reportService = TestBed.get(ReportService);
   });
 
   it('should create', () => {
@@ -63,7 +64,9 @@ describe('ReportersDashboardComponent', () => {
 
   describe('Tag selection', () => {
     it('should have no tag selected to start', () => {
-      expect(component.selectedTags.length).toBe(0);
+      if (!window.sessionStorage.getItem('selectedTags')) {
+        expect(component.selectedTags.length).toBe(0);
+      }
     });
 
     it('should select a tag', () => {
@@ -84,9 +87,12 @@ describe('ReportersDashboardComponent', () => {
     it('should set "incidentComment" and "selectedTags" properties in reportService', () => {
       component.selectedTags = listOfTags;
 
-      component.submitForm('Test incident comment');
+      spyOn(reportService, 'setInfo').and.callThrough();
 
-      expect(mockReportService.setInfo).toHaveBeenCalled();
+      const formValue = { incidentComment: 'Test incident comment' };
+      component.submitForm(formValue);
+
+      expect(reportService.setInfo).toHaveBeenCalled();
     });
   });
 });
