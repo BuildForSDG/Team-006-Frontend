@@ -80,8 +80,6 @@ describe('AuthService', () => {
     const ngZone: NgZone = undefined;
     const service: AuthService = new AuthService(mockAngularFireAuth, router, ngZone);
 
-    console.log(mockAngularFireAuth.auth);
-
     spyOn(service, 'loginWithGoogle');
     spyOn(service, 'initiateSignInWithRedirect');
 
@@ -96,8 +94,6 @@ describe('AuthService', () => {
     const router: Router = undefined;
     const ngZone: NgZone = undefined;
     const service: AuthService = new AuthService(mockAngularFireAuth, router, ngZone);
-
-    console.log(mockAngularFireAuth.auth);
 
     spyOn(service, 'logout');
 

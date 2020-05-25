@@ -1,7 +1,7 @@
 // Nav styles
 
 nav {
-  background-color: red;
+  background-color: #ed0000;
   display: flex;
   padding: 20px 15px;
   justify-content: space-between;
@@ -54,6 +54,10 @@ nav {
           padding-bottom: 39px;
           padding-right: 15px;
         }
+
+        li.active {
+          color: #ed0000;
+        }
       }
     }
 
@@ -62,3 +66,4 @@ nav {
     }
   }
 }
+

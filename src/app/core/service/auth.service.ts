@@ -23,6 +23,9 @@ export class AuthService {
     private router: Router,
     private ngZone: NgZone
   ) {
+    if (window.sessionStorage.getItem('token')) {
+      this.setReporterLoggedInStatus();
+    }
     // Using sessionstorage as a means to show a loading message before the getRedirectResult method resolves
     if (window.sessionStorage.getItem('period')) {
       this.showSignInPendingMessage();
@@ -45,10 +48,11 @@ export class AuthService {
                 // tslint:disable-next-line: no-string-literal
                 this.newReporterProfile.lastName = result.additionalUserInfo.profile['family_name'];
 
-                this.router.navigate(['auth/reporter-signup/profile-confirmation']);
+                this.router.navigate(['/auth/reporter-signup/profile-confirmation']);
               } else {
                 this.setReporterLoggedInStatus();
-                this.router.navigate(['/report-dashboard']);
+                window.sessionStorage.setItem('token', result.credential.providerId);
+                this.router.navigate(['/report/dashboard']);
               }
             });
           }
@@ -89,6 +93,16 @@ export class AuthService {
     this.angularFireAuth.auth
       .signOut()
       .then(() => {
+        if (window.sessionStorage.getItem('token')) {
+          window.sessionStorage.removeItem('token');
+        }
+        if (window.sessionStorage.getItem('incidentComment')) {
+          window.sessionStorage.removeItem('incidentComment');
+        }
+        if (window.sessionStorage.getItem('selectedTags')) {
+          window.sessionStorage.removeItem('selectedTags');
+        }
+        this.reporterIsLoggedIn = false;
         this.router.navigate(['/reporter-login']);
       })
       .catch((err) => {

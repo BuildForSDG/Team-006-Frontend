@@ -1,0 +1,87 @@
+.main {
+  padding: 0 15px;
+  margin-top: 30px;
+  color: #444444;
+
+  hr {
+    margin: 30px 0;
+  }
+
+  .back-link {
+    font-size: 12px;
+
+    fa-icon {
+      margin-right: 5px;
+    }
+  }
+
+  .incident-comment-container {
+    margin-bottom: 30px;
+
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .tag-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+
+    li {
+      margin-right: 10px;
+    }
+
+    li::after {
+      content: ',';
+    }
+
+    li:last-child::after {
+      content: '';
+    }
+  }
+
+  div > label {
+    color: #ff4848;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+  }
+}
+
+.bottom-section {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 15px;
+  padding-top: 15px;
+  background-color: #f4f4f4;
+
+  label {
+    font-weight: bold;
+  }
+
+  div#location {
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  /* Green button */
+
+  button {
+    width: 92%;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #10d610;
+    padding: 19px;
+    border: none;
+    margin-top: 30px;
+  }
+}
+
+#makeAnonymous:checked #makeAnonymous {
+  display: none;
+}
