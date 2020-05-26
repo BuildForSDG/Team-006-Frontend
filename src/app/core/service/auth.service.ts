@@ -2,6 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { IReporterProfileConfirmation } from '../interface/profile-confirmation';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,12 @@ export class AuthService {
   signInMessage = 'Loading...';
   signInPendingState: boolean;
   reporterIsLoggedIn: boolean;
+  newReporterProfile: IReporterProfileConfirmation = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: 0
+  };
 
   constructor(
     public angularFireAuth: AngularFireAuth, // Inject AngularFireAuth
@@ -23,16 +30,33 @@ export class AuthService {
       this.angularFireAuth.auth
         .getRedirectResult()
         .then((result) => {
+          this.ngZone.run(() => {
+            this.signInPendingState = false;
+          });
+
           if (result.user) {
             // Using NgZone as the only way to run Angular-specific code within Promise
             this.ngZone.run(() => {
-              this.signInPendingState = false;
-              this.setReporterLoggedInStatus();
-              this.router.navigate(['/report-dashboard']);
+              if (result.additionalUserInfo.isNewUser) {
+                // tslint:disable-next-line: no-string-literal
+                this.newReporterProfile.email = result.additionalUserInfo.profile['email'];
+                // tslint:disable-next-line: no-string-literal
+                this.newReporterProfile.firstName = result.additionalUserInfo.profile['given_name'];
+                // tslint:disable-next-line: no-string-literal
+                this.newReporterProfile.lastName = result.additionalUserInfo.profile['family_name'];
+
+                this.router.navigate(['auth/reporter-signup/profile-confirmation']);
+              } else {
+                this.setReporterLoggedInStatus();
+                this.router.navigate(['/report-dashboard']);
+              }
             });
           }
         })
         .catch((err) => {
+          this.ngZone.run(() => {
+            this.signInPendingState = false;
+          });
           console.log(err);
         });
     }
@@ -53,6 +77,8 @@ export class AuthService {
   loginWithFacebook() {
     return new Promise<any>((resolve, reject) => {
       const provider = new auth.FacebookAuthProvider();
+      provider.addScope('profile');
+      provider.addScope('email');
       // Initiate signInWithRedirect method
       this.initiateSignInWithRedirect(provider);
       resolve();
@@ -60,17 +86,10 @@ export class AuthService {
   }
 
   logout() {
-    const user = this.angularFireAuth.auth.currentUser;
     this.angularFireAuth.auth
       .signOut()
       .then(() => {
-        this.angularFireAuth.auth.onAuthStateChanged((authUser) => {
-          this.reporterIsLoggedIn = undefined;
-          this.router.navigate(['/reporter-login']);
-        });
-        /* this.ngZone.run(() => {
-          this.router.navigate(['/reporter-login']);
-        }); */
+        this.router.navigate(['/reporter-login']);
       })
       .catch((err) => {
         console.log(err);

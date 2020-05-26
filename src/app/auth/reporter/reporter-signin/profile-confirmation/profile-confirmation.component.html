@@ -1,0 +1,37 @@
+<div *ngIf="screenWidthService.screenWidth <= 450" class="container">
+    <app-navbar></app-navbar>
+
+    <div class="main">
+        <div style="text-align: center;">
+            <h1>Almost done</h1>
+            <span style="margin-top: 20px; display: block;">Please confirm your details.</span>
+        </div>
+
+        <div class="form-container">
+            <form (ngSubmit)="submitForm(form)" #form="ngForm">
+                <div class="md-form">
+                    <label for="firstName">First Name</label>
+                    <input type="text" name="firstName" id="firstName" [(ngModel)]="this.authService.newReporterProfile.firstName" required #firstName="ngModel" />
+                </div>
+                <div class="md-form">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" name="lastName" id="lastName" [(ngModel)]="this.authService.newReporterProfile.lastName" required #lastName="ngModel" />
+                </div>
+                <div class="md-form">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" [(ngModel)]="this.authService.newReporterProfile.email" disabled />
+                </div>
+                <div class="md-form">
+                    <label for="phoneNumber">Phone number</label>
+                    <input required type="number" ngModel #phoneNumber="ngModel" name="phoneNumber" id="phoneNumber" />
+                </div>
+
+                <div>
+                    <button type="submit" [disabled]="phoneNumber.invalid || firstName.invalid || lastName.invalid">
+            Confirm
+          </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
