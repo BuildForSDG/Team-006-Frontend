@@ -1,0 +1,42 @@
+<div *ngIf="screenWidthService.screenWidth <= 450">
+    <app-navbar></app-navbar>
+
+    <div class="main">
+        <div class="back-link" routerLink="/report/dashboard">
+            <fa-icon [icon]="faChevronLeft"></fa-icon>
+            Back
+        </div>
+        <div style="margin-top: 40px;">
+            <div class="incident-comment-container">
+                <label for="incident-comment">Incident comment</label>
+                <p>{{ this.reportService.incidentComment }}</p>
+            </div>
+
+            <div>
+                <label for="tags">Tags</label>
+                <ul class="tag-list">
+                    <li *ngFor="let tag of this.reportService.selectedTags">{{ tag }}</li>
+                </ul>
+            </div>
+
+            <hr />
+
+            <span><input
+          type="checkbox"
+          name="makeAnonymous"
+          id="makeAnonymous"
+        />
+        <label for="makeAnonymous">Make me anonymous</label></span
+      >
+    </div>
+  </div>
+  <div class="bottom-section">
+    <div>
+      <label for="location">Your location</label>
+      <div id="location">xyz avenue</div>
+    </div>
+    <button>Send Report</button>
+  </div>
+</div>
+
+<app-large-device-error *ngIf="screenWidthService.screenWidth > 450"></app-large-device-error>

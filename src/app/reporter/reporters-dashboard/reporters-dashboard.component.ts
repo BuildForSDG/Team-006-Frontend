@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ReportService } from '../core/service/report.service';
-import { ScreenWidthService } from '../core/service/screen-width.service';
+import { ReportService } from 'src/app/core/service/report.service';
+import { ScreenWidthService } from 'src/app/core/service/screen-width.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reporters-dashboard',
@@ -12,7 +13,11 @@ export class ReportersDashboardComponent implements OnInit {
   listOfTags = ['fire', 'accident', 'water'];
 
   selectedTags: string[] = [];
-  constructor(public reportService: ReportService, public screenWidthService: ScreenWidthService) {}
+  constructor(
+    public reportService: ReportService,
+    public screenWidthService: ScreenWidthService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     if (this.reportService.incidentComment) {
@@ -26,7 +31,6 @@ export class ReportersDashboardComponent implements OnInit {
       return;
     } else {
       this.selectedTags.unshift(tag);
-      console.log(this.selectedTags);
     }
   }
 
@@ -34,10 +38,10 @@ export class ReportersDashboardComponent implements OnInit {
     this.selectedTags = this.selectedTags.filter((t) => {
       return t !== tag;
     });
-    console.log(this.selectedTags);
   }
 
   submitForm(formValue) {
-    this.reportService.setInfo(formValue, this.selectedTags);
+    this.reportService.setInfo(formValue.incidentComment, this.selectedTags);
+    this.router.navigate(['/report/confirmation']);
   }
 }

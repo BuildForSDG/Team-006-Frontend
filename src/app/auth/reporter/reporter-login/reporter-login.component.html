@@ -1,25 +1,27 @@
 <div *ngIf="this.screenWidthService.screenWidth <= 450" class="container">
-    <app-navbar></app-navbar>
+  <app-navbar></app-navbar>
 
-    <div class="main">
-        <div style="text-align: center;">
-            <h1>
-                Login to report an emergency
-            </h1>
-            <span style="margin-top: 20px; display: block;">Need an account? <span routerLink="/auth/reporter-signup" style="color: #10d610;">Sign up</span></span>
-        </div>
-
-        <div style="text-align: center; margin-top: 30px;"></div>
-
-        <app-reporter-auth-buttons>
-            <span google-button>Login with Google</span>
-            <span facebook-button>Login with Facebook</span>
-        </app-reporter-auth-buttons>
+  <div class="main">
+    <div style="text-align: center;">
+      <h1>
+        Login to report an emergency
+      </h1>
+      <span style="margin-top: 20px; display: block;"
+        >Need an account? <span routerLink="/auth/reporter-signup" style="color: #10d610;">Sign up</span></span
+      >
     </div>
+
+    <div style="text-align: center; margin-top: 30px;"></div>
+
+    <app-reporter-auth-buttons>
+      <span google-button>Login with Google</span>
+      <span facebook-button>Login with Facebook</span>
+    </app-reporter-auth-buttons>
+  </div>
 </div>
 
 <div *ngIf="this.screenWidthService.screenWidth > 450">
-    <app-large-device-error></app-large-device-error>
+  <app-large-device-error></app-large-device-error>
 </div>
 
 <app-loading-page></app-loading-page>

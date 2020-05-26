@@ -17,13 +17,17 @@ describe('ReportService', () => {
   it('should have no incident comment to start', () => {
     service = new ReportService();
 
-    expect(service.incidentComment.length).toBe(0);
+    if (!window.sessionStorage.getItem('selectedTags')) {
+      expect(service.incidentComment.length).toBe(0);
+    }
   });
 
   it('should have an empty list of tags to start', () => {
     service = new ReportService();
 
-    expect(service.selectedTags.length).toBe(0);
+    if (!window.sessionStorage.getItem('selectedTags')) {
+      expect(service.selectedTags.length).toBe(0);
+    }
   });
 
   it('should set the incidentComment and selectedTags property values', () => {
@@ -33,5 +37,7 @@ describe('ReportService', () => {
 
     expect(service.selectedTags.length).toBeGreaterThan(0);
     expect(service.incidentComment.length).toBeGreaterThan(0);
+    expect(window.sessionStorage.getItem('incidentComment')).toBeTruthy();
+    expect(window.sessionStorage.getItem('selectedTags')).toBeTruthy();
   });
 });

@@ -3,9 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'report-dashboard',
-    loadChildren: () =>
-      import('./reporters-dashboard/reporters-dashboard.module').then((m) => m.ReportersDashboardModule)
+    path: 'report',
+    loadChildren: () => import('./reporter/reporters.module').then((m) => m.ReportersDashboardModule)
   },
   {
     path: 'auth',
