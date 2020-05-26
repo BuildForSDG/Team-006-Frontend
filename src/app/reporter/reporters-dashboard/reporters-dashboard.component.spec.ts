@@ -9,6 +9,7 @@ import { of } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from '../../core/service/auth.service';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ReportConfirmationComponent } from '../report-confirmation/report-confirmation.component';
 
 const authState = {
   isAnonymous: true,
@@ -37,8 +38,13 @@ describe('ReportersDashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ReportersDashboardComponent],
-      imports: [RouterTestingModule, SharedModule, FormsModule, RouterTestingModule],
+      declarations: [ReportersDashboardComponent, ReportConfirmationComponent],
+      imports: [
+        RouterTestingModule.withRoutes([{ path: 'report/confirmation', component: ReportConfirmationComponent }]),
+        SharedModule,
+        FormsModule,
+        RouterTestingModule
+      ],
       providers: [
         { provide: AngularFireAuth, useValue: mockAngularFireAuth },
         {
@@ -56,6 +62,7 @@ describe('ReportersDashboardComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
     reportService = TestBed.get(ReportService);
+    window.sessionStorage.setItem('selectedTags', `${listOfTags}`);
   });
 
   it('should create', () => {
@@ -64,9 +71,8 @@ describe('ReportersDashboardComponent', () => {
 
   describe('Tag selection', () => {
     it('should have no tag selected to start', () => {
-      if (!window.sessionStorage.getItem('selectedTags')) {
-        expect(component.selectedTags.length).toBe(0);
-      }
+      component.selectedTags = [];
+      expect(component.selectedTags.length).toBe(0);
     });
 
     it('should select a tag', () => {
