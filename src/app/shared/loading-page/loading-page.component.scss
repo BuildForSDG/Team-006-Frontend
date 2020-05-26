@@ -1,0 +1,21 @@
+.modal-background {
+  position: fixed;
+  background-color: rgba(75, 75, 75, 0.66);
+  height: 100%;
+  width: 100%;
+}
+
+.modal-body {
+  position: fixed;
+  top: 47vh;
+  height: 8vh;
+  width: 40vw;
+  left: 30vw;
+  background-color: #fff;
+  color: #a0a0a0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
