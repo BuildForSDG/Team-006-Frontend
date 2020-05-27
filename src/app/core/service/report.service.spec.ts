@@ -2,10 +2,13 @@ import { TestBed } from '@angular/core/testing';
 
 import { ReportService } from './report.service';
 
+const listOfTags = ['fire', 'accident', 'water'];
+
 describe('ReportService', () => {
   let service: ReportService;
   beforeEach(() => {
     TestBed.configureTestingModule({});
+    window.sessionStorage.setItem('selectedTags', `${listOfTags}`);
   });
 
   it('should be created', () => {
@@ -16,18 +19,17 @@ describe('ReportService', () => {
 
   it('should have no incident comment to start', () => {
     service = new ReportService();
+    service.incidentComment = '';
 
-    if (!window.sessionStorage.getItem('selectedTags')) {
-      expect(service.incidentComment.length).toBe(0);
-    }
+    expect(service.incidentComment.length).toBe(0);
   });
 
   it('should have an empty list of tags to start', () => {
     service = new ReportService();
+    service.selectedTags = [];
 
-    if (!window.sessionStorage.getItem('selectedTags')) {
-      expect(service.selectedTags.length).toBe(0);
-    }
+    window.sessionStorage.removeItem('selectedTags');
+    expect(service.selectedTags.length).toBe(0);
   });
 
   it('should set the incidentComment and selectedTags property values', () => {

@@ -13,7 +13,7 @@ export class ProfileConfirmationComponent implements OnInit {
 
   ngOnInit() {}
 
-  submitForm() {
+  submitForm(formValue) {
     this.authService.setReporterLoggedInStatus();
     this.router.navigate(['/report-dashboard']);
   }
