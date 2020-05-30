@@ -13,9 +13,7 @@ export class BackButtonComponent implements OnInit {
   @Input()
   routeLink: string;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
