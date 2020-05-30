@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+
+<div class="main">
+    <app-back-button [routeLink]='"/report/pending-response"'></app-back-button>
+
+    <form #form='ngForm' (ngSubmit)='submit(form)'>
+        <div class='form-header'>
+            <h2>Cancel report?</h2>
+            <span>Please give a reason</span>
+        </div>
+
+        <ul>
+            <li><input type="radio" ngModel name="cancel-report" value="reason 1" id="reason1"><label for='reason1'>Reason 1</label></li>
+            <li><input type="radio" ngModel name="cancel-report" value="reason 2" id="reason2"><label for='reason2'>Reason 2</label></li>
+            <li><input type="radio" ngModel name="cancel-report" value="reason 3" id="reason3"><label for='reason3'>Reason 3</label></li>
+            <li><input type="radio" ngModel name="cancel-report" value="reason 4" id="reason4"><label for='reason4'>Reason 4</label></li>
+        </ul>
+
+        <button type="submit">Cancel report</button>
+    </form>
+</div>

@@ -2,10 +2,7 @@
     <app-navbar></app-navbar>
 
     <div class="main">
-        <div class="back-link" routerLink="/report/dashboard">
-            <fa-icon [icon]="faChevronLeft"></fa-icon>
-            Back
-        </div>
+        <app-back-button [routeLink]='"/report/dashboard"'></app-back-button>
         <div style="margin-top: 40px;">
             <div class="incident-comment-container">
                 <label for="incident-comment">Incident comment</label>
