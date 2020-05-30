@@ -1,20 +1,19 @@
 language: node_js
 node_js:
-  - '12'
+- '12'
 before_script:
-  - npm install -g @angular/cli
-  - npm run lint:ci
+- npm install -g @angular/cli
+- npm run lint:ci
 script:
-  - npm run test:ci
+- npm run test:ci
 before_deploy:
-  - npm run build:ci
+- npm run build:ci
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN
+  github_token:
+    secure: NtNVY5P+RKgToQGoKvdGCMIKL3/j5dy/bt4vHSwSQ1WEHo9o/0jnh2I+nsSiVENGqS48FI5ezRC7phZyIAkuFlKDVWIZGK5NsZYQ4isKdK+CNR9zQ3+V6T3gGuPaLDfM2bL1csTvrFmuBOsZiRtQP6ifSE1jW0LwNN/zmPZfBQ/zklRhBciLX0K2oAs0Zx2Jz9T6gL0Pq+S2JflZhP7qsH4CDa4VwvYjVGYZZoId2kfTR7vQSfadCpSWYZC+8pPKQP3DUT3wzPWkV4U3a5IjGwriJ1qLC6uric5p6UdmiOvvO0iS+M843DDLclpxLrgBHGcYnxhF4eGD0Y0mcUQUhBrqVzjgnpeHiTa7zK/TqFfGB7I+5dhmVxgmMN8d2EZPA/m+Dog6aduqWFDd76x2XJ8NlNdawn2/zAPsLxbI75Ul1GlGKPcKmTDXl5VzSeuFXaM5oNSkDwTX/M+AfMaz8bSUN5r+k1CkYx3H/4mYLwTWmGbnLWyES+0CinWa9TxArJYtKoU9ft7ksoZtySakIae3sIMGLwMjpynyY8PX4Fv/K7332s2TKIaOSAY1EVlwvbil/mVtwIbQvI3Y6d8JyAXX6ZErXLTjINX7d+U5JU0qFVTxaFxo7n1nzxtbSQETPbJmhrV184A0trouFe5R8cGMu07lO6zpqNmaYG7NTbM=
+  keep_history: true
   local_dir: dist/Andela-SDG-team006
   on:
     branch: develop
-env:
-  global:
-    secure: eGvmEf6NLvmf/z9/GYAeEPWtZyHC0IbP/Bb4ZnhP5WY0tZ9M6ywEVUIzJug76J1Z3gGqB0yzn3XQYRcaPqbwKXKGzDCn68kVxShSxeS6XqcZffbvu8o3qRn9sPu6/2FwtOjs3WgYWONa97Up7koXdUlO2irOpnpBC55Rvg67qgcTQuKZSX+o4fyFRdCjY1Mv+vHIzvR3bDYm4B/7YygvR7Jl3bkyZtpjdfGsjrHbsJFQTSHs6+pmMOfUL5Rf3CXMIZgEJtra4CGjS5IkKraSPN+v328R0d8wPXMC/73wTB4fmK1d34cXxB7LzEsw1ehJNmvA/cCBCr3d8fxlLw8qfGfWvS7w5JFh5jH6mPFDSYdkbK3nMArgHuuRVPVRcE/ozrDjGj6OCwmqHMub5Djxuza1v60QGUyL7d4fYNbDx1BxyZJng0fq8Ep12DXxFMjakHnUtQZ3fxFRfRRd7REwCHq5a4LFQDob/1CWWPf9utqugG1Uy7/5LKIyZo+wZeZQeMvEJ+bNtbQZg5YXNXy0Fj4YGTTkhfWcCAiSX9Gz0+xoTXnhHfUuukRqNSQUUv/rpJlQsR285/uvKnmuMgIxXeQdDVpxs+6HsW+DmrDmZqHlG2SvfraVYuLYOdquFxetzBgPb2Y5L/rA59cEK4vDCw34hIDSfrMbLde3TndV1AQ=
