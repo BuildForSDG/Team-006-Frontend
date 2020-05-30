@@ -6,9 +6,10 @@ import { ReportersDashboardRoutingModule } from './reporters-routing.module';
 import { ReportersDashboardComponent } from './reporters-dashboard/reporters-dashboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReportConfirmationComponent } from './report-confirmation/report-confirmation.component';
+import { PendingResponseModule } from './pending-response/pending-response.module';
 
 @NgModule({
   declarations: [ReportersDashboardComponent, ReportConfirmationComponent],
-  imports: [CommonModule, ReportersDashboardRoutingModule, SharedModule, FormsModule]
+  imports: [CommonModule, ReportersDashboardRoutingModule, SharedModule, FormsModule, PendingResponseModule]
 })
 export class ReportersDashboardModule {}
