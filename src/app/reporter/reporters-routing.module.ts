@@ -7,6 +7,10 @@ import { ReportConfirmationComponent } from './report-confirmation/report-confir
 const routes: Routes = [
   { path: 'dashboard', component: ReportersDashboardComponent },
   { path: 'confirmation', component: ReportConfirmationComponent },
+  {
+    path: 'pending-response',
+    loadChildren: () => import('./pending-response/pending-response.module').then((m) => m.PendingResponseModule)
+  },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
 ];
 

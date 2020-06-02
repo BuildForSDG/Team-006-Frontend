@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
 
+const firebaseConfig = environment.firebaseConfig;
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -18,7 +20,7 @@ import { AuthModule } from './auth/auth.module';
     SharedModule,
     FontAwesomeModule,
     AuthModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule
   ],
   providers: [],

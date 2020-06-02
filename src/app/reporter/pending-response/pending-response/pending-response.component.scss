@@ -1,0 +1,68 @@
+.main {
+    padding: 0 15px;
+    min-height: 88%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+
+    h2 {
+        text-align: center;
+        color: #FF4848;
+    }
+
+    .first-aid-tip {
+        border: 1px solid #BABABA;
+        border-radius: 4px;
+        height: 40vh;
+
+        .header {
+            width: 100%;
+            background-color: #FF4848;
+            color: #fff;
+            text-align: center;
+            height: 4vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            height: 36vh;
+
+            li {
+                width: 100%;
+                display: inline-block;
+                text-align: center;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                line-height: 1.5em;
+            }
+        }
+    }
+
+    /* Green button */
+
+    button {
+        width: 100%;
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #10d610;
+        padding: 19px;
+        border: none;
+        margin-top: 10px;
+    }
+
+    div.timer {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+}
