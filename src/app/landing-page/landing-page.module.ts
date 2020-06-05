@@ -6,13 +6,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { LandingPageButtonsComponent } from './landing-page-buttons/landing-page-buttons.component';
 
-
 @NgModule({
   declarations: [LandingPageComponent, LandingPageButtonsComponent],
-  imports: [
-    CommonModule,
-    LandingPageRoutingModule,
-    SharedModule
-  ]
+  imports: [CommonModule, LandingPageRoutingModule, SharedModule]
 })
-export class LandingPageModule { }
+export class LandingPageModule {}
