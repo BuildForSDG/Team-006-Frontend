@@ -1,0 +1,178 @@
+@mixin lg-screen {
+  @media screen and (min-width: 768px) {
+    @content
+  }
+}
+
+.hero {
+  height: 70vh;
+
+  .layer {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    background-color: #00000080;
+
+    > div {
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+    }
+  }
+
+  .hero-message {
+    position: absolute;
+    top: 17vh;
+    width: 90vw;
+    left: 5vw;
+    text-align: center;
+    color: #fff;
+
+    
+  @include lg-screen {
+    top: 27vh;
+    width: 42vw;
+    left: 28vw;
+  }
+
+    h2 {
+      font-size: 2.618em;
+    }
+  }
+}
+
+.container {
+  padding: 0 15px;
+}
+
+.hero-2 {
+  height: max-content;
+  padding: 50px 0;
+  text-align: center;
+
+  @include lg-screen {
+    padding: 100px 0;
+  }
+
+  .diagram {
+    height: 150px;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include lg-screen {
+      background-size: 250px;
+    }
+  }
+
+  .message {
+    
+    @include lg-screen {
+      width: 32vw;
+      margin: 0 auto;
+    }
+  }
+
+  > div {
+    display: grid;
+
+    h2 {
+      font-size: 1.618em;
+      color: #10D610;
+    }
+
+    p {
+      color: #444444;
+      font-size: 1em;
+    }
+  }
+
+  .top, .middle {
+    margin-bottom: 60px;
+
+    @include lg-screen {
+      margin-bottom: 160px;
+    }
+  }
+
+  .top, .bottom {
+    
+    @include lg-screen {
+      grid-template-columns: 1fr 1fr;
+    align-items: center;
+    }
+  }
+
+  .middle {
+    
+    @include lg-screen {
+      grid-template-columns: 1fr 1fr;
+    align-items: center;
+    direction: rtl;
+    }
+  }
+}
+
+.hero-3 {
+  background-color: #ED0000;
+  padding: 60px 0;
+
+  .hero-message {
+    display: grid;
+
+    @include lg-screen {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      height: 300px;
+    }
+  }
+
+  .diagram {
+    height: 150px;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include lg-screen {
+      height: 290px;
+      background-size: 300px;
+    }
+  }
+
+  .message {
+    text-align: center;
+
+    @include lg-screen {
+      width: 42vw;
+      margin: 0 auto;
+    }
+
+  h2 {
+    font-size: 1.618em;
+    color: #FFA6A6;
+  }
+
+  p {
+    color: #fff;
+    line-height: 1.5em;
+    font-size: 1em;
+    width: 79%;
+    margin: 0 auto;
+  }
+  }
+}
+
+.hero-4 {
+  padding: 40px 0;
+
+  .message {
+    
+    @include lg-screen {
+      width: 50vw;
+      margin: 0 auto;
+    }
+
+  h2 {
+    color: #10D610;
+    text-align: center;
+  }
+  }
+}

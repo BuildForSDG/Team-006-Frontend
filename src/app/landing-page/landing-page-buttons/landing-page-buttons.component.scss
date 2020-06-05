@@ -1,0 +1,27 @@
+.button-container {
+  display: flex;
+  justify-content: space-around;
+
+  button {
+    background: none;
+    border: none;
+    width: 139px;
+    height: 39px;
+    font-size: 1em;
+    font-weight: bold;
+  }
+  
+  button.reporter {
+    color: #fff;
+    background-color: #ED0000;
+  }
+  
+  button.responder {
+    color: #ED0000;
+    background-color: #fff;
+  }
+  button.responder.red-border {
+    border: 1px solid #ED0000;
+  }
+
+}

@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'auth/reporter-login',
+    loadChildren: () => import('./landing-page/landing-page.module').then((m) => m.LandingPageModule),
     pathMatch: 'full'
   }
 ];
