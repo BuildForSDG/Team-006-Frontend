@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
+import { LandingPageModule } from './landing-page/landing-page.module';
 
 const firebaseConfig = environment.firebaseConfig;
 
@@ -21,7 +22,8 @@ const firebaseConfig = environment.firebaseConfig;
     FontAwesomeModule,
     AuthModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    LandingPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
