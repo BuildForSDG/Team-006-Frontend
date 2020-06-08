@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+
+<div class="main">
+    <div class="header">
+        <div class="container">
+            <h2>History</h2>
+        </div>
+    </div>
+
+    <div class="body">
+        <div class="container">
+            <ul>
+                <li *ngFor='let report of reportHistory' routerLink='{{report.id}}'>
+                    <div>
+                        <fa-icon [icon]='faMapPin'></fa-icon>
+                        <div>{{report.location}}</div>
+                    </div>
+                    <div>
+                        <fa-icon [icon]='faClock'></fa-icon>
+                        <div>{{report.date}}</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
