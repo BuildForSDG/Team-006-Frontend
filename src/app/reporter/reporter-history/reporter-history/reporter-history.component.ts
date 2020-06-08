@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faMapPin, faClock } from '@fortawesome/free-solid-svg-icons';
+import { ReportHistoryService } from 'src/app/core/service/report-history.service';
 
 @Component({
   selector: 'app-reporter-history',
@@ -11,7 +12,13 @@ export class ReporterHistoryComponent implements OnInit {
   faMapPin = faMapPin;
   faClock = faClock;
 
-  constructor() {}
+  reportHistory;
 
-  ngOnInit() {}
+  constructor(private reportHistoryService: ReportHistoryService) {}
+
+  ngOnInit() {
+    this.reportHistoryService.getReportHistory().subscribe((res) => {
+      this.reportHistory = res;
+    });
+  }
 }

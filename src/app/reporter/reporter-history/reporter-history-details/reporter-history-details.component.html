@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+
+<div class="main">
+    <div class="header">
+        <div class="container">
+            <app-back-button [routeLink]='"/report/history"'></app-back-button>
+            <h2>Report Details</h2>
+        </div>
+    </div>
+
+    <div class="body">
+        <div class="section">
+            <div class="section-heading">
+                <div class="container">
+                    Report Info
+                </div>
+            </div>
+            <div class="section-body">
+                <div class="container">
+                    <ul>
+                        <li>
+                            <label>Location</label>
+                            <div>{{report?.location}}</div>
+                        </li>
+                        <li>
+                            <label>Date</label>
+                            <div>{{report?.date}}</div>
+                        </li>
+                        <li>
+                            <label>Picture / Video content</label>
+                            <div>Not available</div>
+                        </li>
+                        <li>
+                            <label>Incident Description</label>
+                            <div>{{report?.description}}</div>
+                        </li>
+                        <li>
+                            <label>Tags</label>
+                            <div *ngFor='let tags of report?.tags'>{{tags}}</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-heading">
+                <div class="container">
+                    Responder Info
+                </div>
+            </div>
+            <div class="section-body">
+                <div class="container">
+                    <ul>
+                        <li>
+                            <label>Name</label>
+                            <div>{{report?.responder.name}}</div>
+                        </li>
+                        <li>
+                            <label>Address</label>
+                            <div>{{report?.responder.address}}</div>
+                        </li>
+                        <li>
+                            <label>Time of arrival</label>
+                            <div>{{report?.responder.timeOfArrival}}</div>
+                        </li>
+                        <li>
+                            <label>Ground Responders</label>
+                            <div *ngFor='let groundResponder of report?.responder.groundResponders'>{{groundResponder}}</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
