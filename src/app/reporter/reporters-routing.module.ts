@@ -11,6 +11,10 @@ const routes: Routes = [
     path: 'pending-response',
     loadChildren: () => import('./pending-response/pending-response.module').then((m) => m.PendingResponseModule)
   },
+  {
+    path: 'history',
+    loadChildren: () => import('./reporter-history/reporter-history.module').then((m) => m.ReporterHistoryModule)
+  },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
 ];
 

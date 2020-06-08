@@ -1,28 +1,23 @@
 <!-- Navbar -->
 <nav>
-  <!-- Logo -->
-  <span id="logo">Logo</span>
+    <!-- Logo -->
+    <span id="logo">RapidMed</span>
 
-  <!-- Navigation -->
-  <div class="navbar-nav">
-    <!-- Menu icon for mobile -->
-    <fa-icon
-      [icon]="faBars"
-      class="hamburger"
-      (click)="showMenu()"
-      *ngIf="this.authService.reporterIsLoggedIn"
-    ></fa-icon>
+    <!-- Navigation -->
+    <div class="navbar-nav">
+        <!-- Menu icon for mobile -->
+        <fa-icon [icon]="faBars" class="hamburger" (click)="showMenu()" *ngIf="this.authService.reporterIsLoggedIn"></fa-icon>
 
-    <div class="nav" [ngClass]="{ active: sideMenu }" *ngIf="this.authService.reporterIsLoggedIn">
-      <!-- Navbar close button -->
-      <span class="close" (click)="closeMenu()">&times;</span>
+        <div class="nav" [ngClass]="{ active: sideMenu }" *ngIf="this.authService.reporterIsLoggedIn">
+            <!-- Navbar close button -->
+            <span class="close" (click)="closeMenu()">&times;</span>
 
-      <!-- Nav list -->
-      <ul class="nav-list">
-        <li class="nav-item" routerLink="/report/dashboard" routerLinkActive="active">Dashboard</li>
-        <li class="nav-item">History</li>
-        <li class="nav-item" (click)="logout()">Logout</li>
-      </ul>
+            <!-- Nav list -->
+            <ul class="nav-list">
+                <li class="nav-item" routerLink="/report/dashboard" routerLinkActive="active">Dashboard</li>
+                <li class="nav-item" routerLink="/report/history" routerLinkActive="active">History</li>
+                <li class="nav-item" (click)="logout()">Logout</li>
+            </ul>
+        </div>
     </div>
-  </div>
 </nav>
