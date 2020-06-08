@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReporterHistoryComponent } from './reporter-history.component';
+import { ReporterHistoryDetailsComponent } from './reporter-history-details.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { of } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 const authState = {
   isAnonymous: true,
@@ -23,20 +23,20 @@ const mockAngularFireAuth: any = {
   authState: of(authState)
 };
 
-describe('ReporterHistoryComponent', () => {
-  let component: ReporterHistoryComponent;
-  let fixture: ComponentFixture<ReporterHistoryComponent>;
+describe('ReporterHistoryDetailsComponent', () => {
+  let component: ReporterHistoryDetailsComponent;
+  let fixture: ComponentFixture<ReporterHistoryDetailsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ReporterHistoryComponent],
+      declarations: [ReporterHistoryDetailsComponent],
       imports: [SharedModule, RouterTestingModule],
       providers: [{ provide: AngularFireAuth, useValue: mockAngularFireAuth }]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReporterHistoryComponent);
+    fixture = TestBed.createComponent(ReporterHistoryDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
